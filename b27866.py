@@ -1,0 +1,6 @@
+S = input()
+i = input()
+#print(S)
+#print(i)
+n = int(i)
+print(S[n-1])
