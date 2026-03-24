@@ -17,3 +17,12 @@ print(num)
 
 snack = '꿀꽈배기'
 print(len(snack))
+
+snack = '''꿀꽈배기는
+너무
+맛있어요'''
+print(snack)
+
+print('-' * 10)
+print('NadoCoding')
+print('*' * 20)
