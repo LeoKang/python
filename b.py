@@ -1,5 +1,5 @@
-print("a = 1")
-print("b = 2")
+#print("a = 1")
+#print("b = 2")
 
 a, b, c = map(int, input().split())
 sum = a+b+c
