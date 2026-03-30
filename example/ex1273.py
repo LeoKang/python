@@ -11,3 +11,4 @@ b2 = BlackBox('하양이', 100000)
 
 b1.set_travel_mode(20)
 b2.set_travel_mode(10)
+BlackBox.set_travel_mode(b1, 25)
