@@ -1,3 +1,5 @@
-my_list = [4, 2, 6, 7, 1]
-my_list.sort()
-print(my_list)
+
+# 1. -----------------
+# inp = input()
+# for x in inp:
+#     print(x, end=' ')
