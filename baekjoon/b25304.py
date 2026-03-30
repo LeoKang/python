@@ -1,5 +1,13 @@
 X = int(input())
 N = int(input())
+
+total_price = sum(a * b for _ in range(N) for a, b in [map(int, input().split())])
+print("Yes" if total_price == X else "No")
+
+# 3. -------------------------------------------------
+
+X = int(input())
+N = int(input())
 c = []
 for i in range(N):
     a, b = map(int, input().split())
@@ -44,21 +52,17 @@ if X == prod:
 else:
     print("No")
 
-
-
-
-
 # 1. --------------------------------------
-# X = int(input())
-# N = int(input())
-# # print(X, N)
-# res = 0
-# for i in range(N):
-#     a, b = map(int, input().split())
-#     # print(a, b)
-#     res += a * b
+X = int(input())
+N = int(input())
+# print(X, N)
+res = 0
+for i in range(N):
+    a, b = map(int, input().split())
+    # print(a, b)
+    res += a * b
 
-# if X==res:
-#     print("Yes")
-# else:
-#     print("No")
+if X==res:
+    print("Yes")
+else:
+    print("No")
