@@ -1,19 +1,5 @@
-#BJ25304
-X=int(input())
-A=[]
-B=[]
-total = 0
-for _ in range(int(input())):
-    a, b = map(int, input().split())
-    A.append(a)
-    B.append(b)
-    
-for t in range(len(A)):
-    total += A[t] * B[t]
+lst = [2, 4, 7, 16, 22, 8, 9]
 
-print(total)
-
-if X==total:
-    print('yes')
-else:
-    print('no')
+for x in range(1, len(lst), 2):
+    if x< len(lst):
+        print(lst[x-1], lst[x])
