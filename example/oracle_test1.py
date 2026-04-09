@@ -28,8 +28,22 @@ cursor = conn.cursor()
 #     print(f"Error inserting data: {e}")
 
 # SELECT 예제
+# try:
+#     cursor.execute("SELECT * FROM test_table")
+#     for row in cursor:
+#         print(row)
+# except oracledb.DatabaseError as e:
+#     print(f"Error fetching data: {e}")
+
+# SELECT - emp table
+name = input("Input name...")
+print(name)
+
 try:
-    cursor.execute("SELECT * FROM emp")
+    select_query = "SELECT * FROM emp WHERE ename='" + name.upper() + "'"
+    print(select_query)
+
+    cursor.execute(select_query)
     for row in cursor:
         print(row)
 except oracledb.DatabaseError as e:
