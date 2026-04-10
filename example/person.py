@@ -1,6 +1,3 @@
-from asyncio.windows_events import NULL
-
-
 class Person:
     def __init__(self, empno, ename, job, mgr, hiredate, sal, comm, deptno):
         self.empno = empno
