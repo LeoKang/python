@@ -46,7 +46,7 @@ def delete_emp(): # empno, ename, job, mgr, hiredate, sal, comm, deptno
         eq = False
         for i in lst:
             # i.print_person()
-            if i.empno == empno:
+            if str(i.empno) == empno:
                 eq = True
         if eq == True:
             print('해당 사번이 존재합니다.')    
