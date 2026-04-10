@@ -1,5 +1,5 @@
 import oracledb
-from person import Person
+from person import Person #Model
 
 # 데이터베이스 접속 정보 설정
 dsn = oracledb.makedsn("localhost", 1521, service_name="XE")
@@ -7,6 +7,8 @@ conn = oracledb.connect(user="c##mbc", password="qwer1234", dsn=dsn)
 
 # 쿼리 실행을 위한 커서 생성
 cursor = conn.cursor()
+
+lst = []
 
 def show_menu():
     print("-- 임직원 관리 시스템 --")
@@ -45,7 +47,11 @@ def search_emp():
         for row in cursor:
             # print(row)
             p = Person(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
-            p.print_person()
+            lst.append(p)
+            # p.print_person()
+
+        for i in lst:
+            i.print_person()
     except oracledb.DatabaseError as e:
         print(f"Error fetching data: {e}")
 
