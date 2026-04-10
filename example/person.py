@@ -1,3 +1,6 @@
+from asyncio.windows_events import NULL
+
+
 class Person:
     def __init__(self, empno, ename, job, mgr, hiredate, sal, comm, deptno):
         self.empno = empno
@@ -10,4 +13,7 @@ class Person:
         self.deptno = deptno
 
     def print_person(self):
-        print(f"{self.empno} : {self.ename:>10} : {self.sal}")
+        if self.sal is not None:
+            print(f"{self.empno} : {self.ename:>10} : {int(self.sal):>7}")
+        else:
+            print(f"{self.empno} : {self.ename:>10} :       0")

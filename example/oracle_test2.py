@@ -66,7 +66,7 @@ def delete_emp(): # empno, ename, job, mgr, hiredate, sal, comm, deptno
         search_emp()
 
 def search_emp():
-    print("FUNCTION CALL. search_emp()")
+    # print("FUNCTION CALL. search_emp()")
 # SELECT 예제
     try:
         cursor.execute('''
@@ -85,7 +85,7 @@ def search_emp():
         print(f"Error fetching data: {e}")
 
 def search_emp2():
-    print("FUNCTION CALL. search_emp2()")
+    # print("FUNCTION CALL. search_emp2()")
     for i in lst:
         i.print_person()
    
