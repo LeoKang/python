@@ -1,4 +1,5 @@
 import oracledb
+from person import Person
 
 # 데이터베이스 접속 정보 설정
 dsn = oracledb.makedsn("localhost", 1521, service_name="XE")
@@ -6,20 +7,6 @@ conn = oracledb.connect(user="c##mbc", password="qwer1234", dsn=dsn)
 
 # 쿼리 실행을 위한 커서 생성
 cursor = conn.cursor()
-
-class Person:
-    def __init__(self, empno, ename, job, mgr, hiredate, sal, comm, deptno):
-        self.empno = empno
-        self.ename = ename
-        self.job = job
-        self.mgr = mgr
-        self.hiredate = hiredate
-        self.sal = sal
-        self.comm = comm
-        self.deptno = deptno
-
-    def print_person(self):
-        print(f"{self.empno} : {self.ename}")
 
 def show_menu():
     print("-- 임직원 관리 시스템 --")
