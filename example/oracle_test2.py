@@ -38,6 +38,7 @@ def insert_emp(): # empno, ename, job, mgr, hiredate, sal, comm, deptno
         print("ERR-INSERT-001 : 사번 입력 오류 입니다. 숫자만 입력 가능합니다.")
 
 def search_emp():
+    print("FUNCTION CALL. search_emp()")
 # SELECT 예제
     try:
         cursor.execute('''
@@ -55,6 +56,11 @@ def search_emp():
     except oracledb.DatabaseError as e:
         print(f"Error fetching data: {e}")
 
+def search_emp2():
+    print("FUNCTION CALL. search_emp2()")
+    for i in lst:
+        i.print_person()
+   
 while True:
     select = int(show_menu())
     if select == 1:
@@ -64,7 +70,11 @@ while True:
         print("2. 직원 삭제 메뉴")
     elif select == 3:
         print("3. 직원 조회 메뉴")
-        search_emp()
+        print("--- LST SIZE --- ", len(lst))
+        if len(lst) == 0:
+            search_emp()
+        else:
+            search_emp2()
     else:
         print("프로그램 종료 ***")
         break
