@@ -32,6 +32,7 @@ def insert_emp(): # empno, ename, job, mgr, hiredate, sal, comm, deptno
             cursor.execute("INSERT INTO EMP(EMPNO, ENAME) VALUES (:1, :2)", [empno, ename.upper()])
             conn.commit()
             print("Data inserted successfully")
+            lst.clear()
         except oracledb.DatabaseError as e:
             print(f"Error inserting data: {e}")
     else:
