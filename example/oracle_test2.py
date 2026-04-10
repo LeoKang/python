@@ -62,8 +62,7 @@ def search_emp():
     except oracledb.DatabaseError as e:
         print(f"Error fetching data: {e}")
 
-loop = True
-while loop:
+while True:
     select = int(show_menu())
     if select == 1:
         print("1. 직원 추가 메뉴")
@@ -75,7 +74,7 @@ while loop:
         search_emp()
     else:
         print("프로그램 종료 ***")
-        loop = False
+        break
 
 # 커서 및 커넥션 닫기
 cursor.close()
