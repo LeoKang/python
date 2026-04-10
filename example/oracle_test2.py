@@ -7,6 +7,20 @@ conn = oracledb.connect(user="c##mbc", password="qwer1234", dsn=dsn)
 # 쿼리 실행을 위한 커서 생성
 cursor = conn.cursor()
 
+class Person:
+    def __init__(self, empno, ename, job, mgr, hiredate, sal, comm, deptno):
+        self.empno = empno
+        self.ename = ename
+        self.job = job
+        self.mgr = mgr
+        self.hiredate = hiredate
+        self.sal = sal
+        self.comm = comm
+        self.deptno = deptno
+
+    def print_person(self):
+        print(f"{self.empno} : {self.ename}")
+
 def show_menu():
     print("-- 임직원 관리 시스템 --")
     print("- 1. 직원 추가    -")
@@ -32,14 +46,19 @@ def insert_emp(): # empno, ename, job, mgr, hiredate, sal, comm, deptno
         except oracledb.DatabaseError as e:
             print(f"Error inserting data: {e}")
     else:
-        print("SEUNGJIN-0001 : 사번 입력 오류 입니다. 숫자만 입력 가능합니다.")
+        print("ERR-INSERT-001 : 사번 입력 오류 입니다. 숫자만 입력 가능합니다.")
 
 def search_emp():
 # SELECT 예제
     try:
-        cursor.execute("SELECT * FROM emp")
+        cursor.execute('''
+            SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO 
+            FROM emp
+            ORDER BY EMPNO''')
         for row in cursor:
-            print(row)
+            # print(row)
+            p = Person(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
+            p.print_person()
     except oracledb.DatabaseError as e:
         print(f"Error fetching data: {e}")
 
