@@ -1,5 +1,5 @@
 class Person:
-    def __init__(self, empno, ename, job, mgr, hiredate, sal, comm, deptno):
+    def __init__(self, empno, ename = "", job = "", mgr = "", hiredate = "", sal = 0, comm = 0, deptno = ""):
         self.empno = empno
         self.ename = ename
         self.job = job

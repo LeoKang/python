@@ -48,13 +48,13 @@ def delete_emp(): # empno, ename, job, mgr, hiredate, sal, comm, deptno
             # i.print_person()
             if str(i.empno) == empno:
                 eq = True
+                lst.remove(i)
         if eq == True:
             print('해당 사번이 존재합니다.')
             try:
                 # DELETE FROM EMP WHERE EMPNO='4769'
                 cursor.execute("DELETE FROM EMP WHERE EMPNO=:1", [empno])
                 conn.commit()
-
 
                 print("Data deleted successfully")
             except oracledb.DatabaseError as e:
