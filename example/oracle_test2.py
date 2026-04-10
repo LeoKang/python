@@ -49,23 +49,20 @@ def delete_emp(): # empno, ename, job, mgr, hiredate, sal, comm, deptno
             if str(i.empno) == empno:
                 eq = True
         if eq == True:
-            print('해당 사번이 존재합니다.')    
+            print('해당 사번이 존재합니다.')
+            try:
+                # DELETE FROM EMP WHERE EMPNO='4769'
+                cursor.execute("DELETE FROM EMP WHERE EMPNO=:1", [empno])
+                conn.commit()
+
+
+                print("Data deleted successfully")
+            except oracledb.DatabaseError as e:
+                print(f"Error inserting data: {e}")
         else:
-            print('해당 사번이 존재하지 않습니다.')
+            print("ERR-INSERT-001 : 사번 입력 오류 입니다. 숫자만 입력 가능합니다.")
     else:
         search_emp()
-
-#     if empno.isdigit():        
-# #INSERT 예제
-#         try:
-#             # INSERT INTO EMP(EMPNO, ENAME) VALUES('1234','LEO')
-#             cursor.execute("INSERT INTO EMP(EMPNO, ENAME) VALUES (:1, :2)", [empno, ename.upper()])
-#             conn.commit()
-#             print("Data inserted successfully")
-#         except oracledb.DatabaseError as e:
-#             print(f"Error inserting data: {e}")
-#     else:
-#         print("ERR-INSERT-001 : 사번 입력 오류 입니다. 숫자만 입력 가능합니다.")
 
 def search_emp():
     print("FUNCTION CALL. search_emp()")
