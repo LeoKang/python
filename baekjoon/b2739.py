@@ -1,3 +1,14 @@
+
+N=int(input())
+for i in range(9) :
+    print(f"{N} * {i+1} = {N*(i+1)}")
+
+N = int(input())
+for i in range(1,10):
+    print(f"{N} * {i} = {N*i}")
+
+# .5 -----------------------------------
+
 N = int(input())
 if 1<= N <=9:
     for i in range(1,10):
