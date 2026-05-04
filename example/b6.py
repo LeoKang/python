@@ -1,5 +1,2 @@
-
-# 1. -----------------
-# inp = input()
-# for x in inp:
-#     print(x, end=' ')
+for i in range(100):
+    print(i)
